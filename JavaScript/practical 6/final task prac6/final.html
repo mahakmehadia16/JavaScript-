@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Job Application Analyzer - Sample Outputs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .app-box {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 20px auto;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      max-width: 700px;
+    }
+    .app-box pre {
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .key {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .value {
+      color: #34495e;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Smart Job Application Analyzer </h1>
+
+  <div id="output"></div>
+
+  <script>
+    // ---------- FUNCTIONS ----------
+    function formatApplicantName(text) {
+      let match = text.match(/Applicant:\s*([^\n]+)/i);
+      if (!match) return "Unknown";
+      return match[1]
+        .trim()
+        .split(/\s+/)
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ");
+    }
+
+    function extractEmails(text) {
+      let emails = text.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}/g) || [];
+      emails = emails.map(e => e.toLowerCase());
+      return {
+        primaryEmail: emails[0] || null,
+        altEmails: emails.slice(1)
+      };
+    }
+
+    function extractPhone(text) {
+      let match = text.match(/Contact:\s*([+]\d{1,3}-\d{10})/i);
+      if (!match) return "Invalid phone number";
+      let phone = match[1].trim();
+      return /^\+\d{1,3}-[6-9]\d{9}$/.test(phone) ? phone : "Invalid phone number";
+    }
+
+    function extractSkills(text) {
+      let match = text.match(/Skills:\s*([^\n]+)/i);
+      if (!match) return [];
+      return match[1]
+        .split(/,/)
+        .map(skill => skill.trim())
+        .filter(Boolean);
+    }
+
+    function extractHashtags(text) {
+      return text.match(/#[A-Za-z0-9]+/g) || [];
+    }
+
+    function extractSalary(text) {
+      let match = text.match(/Salary:\s*([^\n]+)/i);
+      if (!match) return null;
+      let clean = match[1].replace(/[^0-9]/g, "");
+      return Number(clean);
+    }
+
+    function countWords(text) {
+      return (text.match(/\b\w+\b/g) || []).length;
+    }
+
+    function countVowels(text) {
+      return (text.match(/[aeiouAEIOU]/g) || []).length;
+    }
+
+    function processApplication(application) {
+      const emailInfo = extractEmails(application);
+      return {
+        applicant: formatApplicantName(application),
+        primaryEmail: emailInfo.primaryEmail,
+        altEmails: emailInfo.altEmails,
+        phone: extractPhone(application),
+        skills: extractSkills(application),
+        hashtags: extractHashtags(application),
+        salary: extractSalary(application),
+        wordCount: countWords(application),
+        vowelCount: countVowels(application)
+      };
+    }
+
+    function displayApplication(appName, rawText, result) {
+      const outputDiv = document.getElementById("output");
+      const box = document.createElement("div");
+      box.classList.add("app-box");
+
+      box.innerHTML = `
+        <h2>${appName}</h2>
+        <h3>📥 Input:</h3>
+        <pre>${rawText.trim()}</pre>
+        <h3>📤 Output:</h3>
+        <p><span class="key">👤 Applicant Name:</span> <span class="value">${result.applicant}</span></p>
+        <p><span class="key">📧 Primary Email:</span> <span class="value">${result.primaryEmail}</span></p>
+        <p><span class="key">📧 Alternate Emails:</span> <span class="value">${result.altEmails.length ? result.altEmails.join(", ") : "None"}</span></p>
+        <p><span class="key">📞 Phone:</span> <span class="value">${result.phone}</span></p>
+        <p><span class="key">🛠 Skills:</span> <span class="value">${result.skills.join(", ")}</span></p>
+        <p><span class="key">🏷 Hashtags:</span> <span class="value">${result.hashtags.join(", ")}</span></p>
+        <p><span class="key">💰 Salary:</span> <span class="value">${result.salary ? result.salary : "Not provided"}</span></p>
+        <p><span class="key">🔠 Word Count:</span> <span class="value">${result.wordCount}</span></p>
+        <p><span class="key">🔤 Vowel Count:</span> <span class="value">${result.vowelCount}</span></p>
+      `;
+
+      outputDiv.appendChild(box);
+    }
+
+    // ---------- SAMPLE APPLICATIONS ----------
+    const applications = [
+      {
+        name: "Application 1",
+        text: `
+Applicant: maRy annE thomPSON
+Primary Email: mary.thompson@GMAIL.com
+Alternate Email: thompson.mary@work.co.in
+Contact: +91-9876543210
+Skills: Java , HTML/CSS , ReactJS , Node.js , SQL
+Cover: I am applying for the role of Full Stack Developer!!
+Expected Salary: $ 75,000 per annum
+Tags: #FullStack #Developer #Java #ReactJS #2025Goals
+        `
+      },
+      {
+        name: "Application 2",
+        text: `
+Applicant: DaNIEL RoBERTsOn
+Primary Email: daniel.rob@company.com
+Alternate Email: drobertson@mail.org dan.rob.personal@GMAIL.COM
+Contact: +91-1234567890
+Skills: Python, Django , Machine Learning,Data Science, AI
+Expected Salary: $120,500 per year
+Note: Please reply only to dan.rob.personal@gmail.com
+Tags: #AI #DataScience #Python #2025Career
+        `
+      },
+      {
+        name: "Application 3",
+        text: `
+Applicant: soPhia WILSON
+Primary Email: sophia.wilson@MAIL.com
+Contact: +44-7896541230
+Skills: C, C++ , Java , JavaScript , React , Angular
+Cover: Looking forward to joining your team...
+Expected Salary: 95000 INR
+Extra Emails: s.wilson@backup.co.uk sophia_alt@work.com
+Tags: #Developer #Engineer #Cplusplus #React #Angular #NewJob
+        `
+      },
+      {
+        name: "Application 4",
+        text: `
+Random Line: Ignore this text completely
+Applicant: keVin O'BRIEN
+Primary Email: kevin.obrien@MAIL.COM
+Alternate Email: obrien.kevin@dev.org
+Contact: +91-7891234567
+Skills: GoLang , Rust, JavaScript , TypeScript, Node.js
+Cover: I am extremely interested in this--role!!!
+Expected Salary: USD 88,750
+Tags: #GoLang #Rust #JavaScript #TypeScript #Node #CoderLife
+        `
+      }
+    ];
+
+    // ---------- PROCESS AND DISPLAY ----------
+    applications.forEach(app => {
+      const result = processApplication(app.text);
+      displayApplication(app.name, app.text, result);
+    });
+
+  </script>
+</body>
+</html>

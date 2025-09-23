@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mahak's Practical 6 - String Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fefefe;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #4a148c;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .result {
+      background: #fff8e1;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+    .method-name {
+      font-weight: bold;
+      color: #6a1b9a;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Mahak's JavaScript String Methods</h1>
+  <div id="output"></div>
+
+  <script>
+    let str = "  Hello, I am Mahak! Welcome to my JavaScript Lab.  ";
+    let output = document.getElementById("output");
+
+    function show(method, result) {
+      output.innerHTML += `<div class='result'><span class='method-name'>${method}:</span> ${result}</div>`;
+    }
+
+    // 1. length
+    show("length", `"${str}" has ${str.length} characters`);
+
+    // 2. charAt()
+    show("charAt(10)", `Character at index 10 is "${str.charAt(10)}"`);
+
+    // 3. indexOf()
+    show("indexOf('Mahak')", `Your name starts at index ${str.indexOf("Mahak")}`);
+
+    // 4. lastIndexOf()
+    let str2 = "Mahak loves coding. Mahak loves JavaScript.";
+    show("lastIndexOf('Mahak')", `Last time your name appears at index ${str2.lastIndexOf("Mahak")}`);
+
+    // 5. slice()
+    show("slice(10, 15)", `"${str.slice(10, 15)}" was sliced out of the sentence`);
+
+    // 6. substring()
+    show("substring(10, 15)", `"${str.substring(10, 15)}" was taken using substring`);
+
+    // 7. split()
+    let favorites = "Coffee,Code,Music,Travel";
+    show("split(',')", `Your favorites as array: ${JSON.stringify(favorites.split(","))}`);
+
+    // 8. replace()
+    let quote = "Mahak likes cats";
+    show("replace('cats','dogs')", quote.replace("cats","dogs"));
+
+    // 9. toUpperCase()
+    show("toUpperCase()", str.toUpperCase());
+
+    // 10. toLowerCase()
+    show("toLowerCase()", str.toLowerCase());
+
+    // 11. trim()
+    show("trim()", `"${str.trim()}" (extra spaces removed)`);
+
+    // 12. includes()
+    show("includes('JavaScript')", str.includes("JavaScript") ? "Yes, it talks about JavaScript" : "No, it doesn't mention JavaScript");
+  </script>
+</body>
+</html>

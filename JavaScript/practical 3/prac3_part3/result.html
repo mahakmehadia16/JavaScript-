@@ -1,0 +1,9 @@
+<p id="output"></p>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+const marks = params.get("marks");
+
+document.getElementById("output").innerText = `Name: ${name}, Marks: ${marks}`;
+</script>

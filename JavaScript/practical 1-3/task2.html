@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Registration (ES6+)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    label { display: block; margin: 8px 0 4px; }
+    input, button { padding: 8px; margin-bottom: 10px; width: 250px; }
+    #message { font-weight: bold; margin-top: 10px; }
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+
+  <h2>User Registration</h2>
+  <form id="registrationForm">
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Age:</label>
+    <input type="number" id="age" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+
+    <br>
+    <button type="submit">Register</button>
+  </form>
+
+  <div id="message"></div>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+    const messageDiv = document.getElementById('message');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      // Create a user object from form input
+      const user = {
+        name: document.getElementById('name').value.trim(),
+        age: parseInt(document.getElementById('age').value),
+        email: document.getElementById('email').value.trim()
+      };
+
+      // Object destructuring
+      const { name, age, email } = user;
+
+      // Validation checks
+      if (!name) {
+        messageDiv.innerHTML = `<span class="error">Name cannot be empty.</span>`;
+        return;
+      }
+      if (isNaN(age) || age < 13 || age > 120) {
+        messageDiv.innerHTML = `<span class="error">Age must be between 13 and 120.</span>`;
+        return;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        messageDiv.innerHTML = `<span class="error">Invalid email format.</span>`;
+        return;
+      }
+
+      // Success message with template literal
+      messageDiv.innerHTML = `<span class="success">Welcome, ${name} (Age: ${age}). Your email ${email} has been registered successfully!</span>`;
+    });
+  </script>
+</body>
+</html>

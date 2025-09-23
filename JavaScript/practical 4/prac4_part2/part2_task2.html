@@ -1,0 +1,21 @@
+<script>
+    function isWordPalindrome(str) {
+    if (typeof str !== "string" || str.trim() === "") {
+        throw new Error("Invalid string input");
+    }
+
+    let cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, ""); // ignore spaces/punctuations
+    let reversed = cleaned.split("").reverse().join("");
+    return cleaned === reversed;
+}
+
+// Test
+try {
+    console.log("Palindrome (madam):", isWordPalindrome("madam"));   // true
+    console.log("Palindrome (Hello):", isWordPalindrome("Hello"));   // false
+    console.log("Palindrome (A man a plan a canal Panama):", isWordPalindrome("A man a plan a canal Panama")); // true
+} catch (err) {
+    console.log("Error:", err.message);
+}
+
+</script>

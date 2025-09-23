@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Task 4 - Duplicate Words</title></head>
+<body>
+<h3>Task 4: Find Duplicate Words</h3>
+<p id="output"></p>
+
+<script>
+let dupRegex = /\b(\w+)\s+\1\b/g;
+
+let withDuplicates = "This is is a test test"; // ✅ should find ["is","test"]
+let withoutDuplicates = "This is a test";      // ❌ should find null
+
+document.getElementById("output").innerHTML =
+  "<b>Regex:</b> /\\b(\\w+)\\s+\\1\\b/g<br>" +
+  "Input with duplicates: " + withDuplicates + "<br>Output: " + JSON.stringify(withDuplicates.match(dupRegex)) + "<br><br>" +
+  "Input without duplicates: " + withoutDuplicates + "<br>Output: " + withoutDuplicates.match(dupRegex);
+</script>
+</body>
+</html>

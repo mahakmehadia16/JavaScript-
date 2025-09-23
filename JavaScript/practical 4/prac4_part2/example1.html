@@ -1,0 +1,12 @@
+<script>
+try 
+{
+    let result = 10 / 0;
+    if (!isFinite(result)) throw new Error("Cannot divide by zero!");
+    console.log(result);
+} 
+catch (err) {
+    console.log("Error:", err.message);
+}
+
+</script>

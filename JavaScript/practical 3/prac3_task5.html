@@ -1,0 +1,30 @@
+<script>
+let sentimentScore = parseInt(prompt("Enter sentiment score (-10 to +10):"));
+let keyword = prompt("Enter emotion keyword (e.g., tired, excited, confused):").toLowerCase();
+
+let response;
+
+if (isNaN(sentimentScore)) {
+    response = "Hmm... I couldn't understand your mood. Want to try again?";
+} else if (sentimentScore >= 6 && keyword === "tired") {
+    response = "You seem accomplished but exhausted. Remember to rest!";
+} else if (sentimentScore <= -3 && keyword === "confused") {
+    response = "It's okay to feel confused. Let me guide you step by step.";
+} else if (sentimentScore === 0 && keyword === "") {
+    response = "I'm not sure how you're feeling. Want to talk about it?";
+} else if (sentimentScore >= 5 && keyword === "excited") {
+    response = "That's awesome! I'm excited for you too!";
+} else if (sentimentScore <= -7) {
+    response = "Sounds like you're really down. I'm here if you need to talk.";
+} else if (sentimentScore >= 7) {
+    response = "You sound great! Keep the positive energy flowing!";
+} else if (sentimentScore < 0) {
+    response = "Sorry you're feeling low. Anything I can do to help?";
+} else if (sentimentScore > 0) {
+    response = "You seem to be doing okay. Let's keep that momentum going!";
+} else {
+    response = "I'm picking up mixed signals. Tell me more about how you feel.";
+}
+
+alert(response);
+</script>

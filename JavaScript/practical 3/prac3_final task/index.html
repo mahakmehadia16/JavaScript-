@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fair Grader - 3 Students</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Fair Grader - Practical 3</h2>
+
+  <div id="students">
+    <!-- 3 forms here -->
+    <div class="student" id="student1">
+      <h3>Student 1</h3>
+      <form onsubmit="return calculate('1')">
+        <label>Name: <input type="text" id="name1" required></label><br><br>
+        <label>Roll No: <input type="number" id="roll1" required></label><br><br>
+
+        <label>Subject 1 (Slider): 
+          <input type="range" id="sub1_1" min="0" max="100" value="50" oninput="updateSliderValue('1')">
+          <span id="sliderValue1">50</span>
+        </label><br><br>
+
+        <label>Subject 2: <input type="number" id="sub2_1" min="0" max="100" required></label><br><br>
+
+        <label>Subject 3:
+          <select id="sub3_1"></select>
+          <input type="number" id="sub3Marks_1" min="0" max="100" required>
+        </label><br><br>
+
+        <button type="submit">Calculate</button>
+      </form>
+      <div class="output" id="output1"></div>
+    </div>
+
+    <!-- Repeat for Student 2 -->
+    <div class="student" id="student2">
+      <h3>Student 2</h3>
+      <form onsubmit="return calculate('2')">
+        <label>Name: <input type="text" id="name2" required></label><br><br>
+        <label>Roll No: <input type="number" id="roll2" required></label><br><br>
+
+        <label>Subject 1 (Slider): 
+          <input type="range" id="sub1_2" min="0" max="100" value="50" oninput="updateSliderValue('2')">
+          <span id="sliderValue2">50</span>
+        </label><br><br>
+
+        <label>Subject 2: <input type="number" id="sub2_2" min="0" max="100" required></label><br><br>
+
+        <label>Subject 3:
+          <select id="sub3_2"></select>
+          <input type="number" id="sub3Marks_2" min="0" max="100" required>
+        </label><br><br>
+
+        <button type="submit">Calculate</button>
+      </form>
+      <div class="output" id="output2"></div>
+    </div>
+
+    <!-- Repeat for Student 3 -->
+    <div class="student" id="student3">
+      <h3>Student 3</h3>
+      <form onsubmit="return calculate('3')">
+        <label>Name: <input type="text" id="name3" required></label><br><br>
+        <label>Roll No: <input type="number" id="roll3" required></label><br><br>
+
+        <label>Subject 1 (Slider): 
+          <input type="range" id="sub1_3" min="0" max="100" value="50" oninput="updateSliderValue('3')">
+          <span id="sliderValue3">50</span>
+        </label><br><br>
+
+        <label>Subject 2: <input type="number" id="sub2_3" min="0" max="100" required></label><br><br>
+
+        <label>Subject 3:
+          <select id="sub3_3"></select>
+          <input type="number" id="sub3Marks_3" min="0" max="100" required>
+        </label><br><br>
+
+        <button type="submit">Calculate</button>
+      </form>
+      
+      <div class="output" id="output3"></div>
+    </div>
+  </div>
+
+  <footer>
+    Created by Mahak | Completion Time: <span id="time"></span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

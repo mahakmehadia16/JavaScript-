@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="output">Original Message</p>
+<button onclick="updateOutput()">Click Me</button>
+
+<script>
+function updateOutput() {
+console.log("Button clicked!");
+document.getElementById("output").innerHTML = "Updated Message!";
+}
+
+</script>
+</body>
+</html>

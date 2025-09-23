@@ -1,0 +1,104 @@
+<!-- <script>
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+        console.log(numbers[i]);
+    }
+}
+</script>
+
+<script></script>
+-->
+
+<script>
+let strings = ["apple", "banana", "strawberry", "kiwi", "pineapple"];
+let longest = strings[0];
+for (let i = 1; i < strings.length; i++) {
+    if (strings[i].length > longest.length) {
+        longest = strings[i];
+    }
+}
+console.log("Longest string:", longest);
+</script>
+
+let n = 15;
+let i = 1;
+while (i <= n) {
+    if (i % 2 !== 0) {
+        console.log(i);
+    }
+    i++;
+}
+
+let limit = 50;
+let a = 0, b = 1;
+while (a <= limit) {
+    console.log(a);
+    let next = a + b;
+    a = b;
+    b = next;
+}
+
+let num;
+do {
+    num = parseInt(prompt("Enter a number (0 to stop):"));
+} while (num !== 0);
+console.log("Program stopped.");
+
+
+let secret = Math.floor(Math.random() * 100) + 1;
+let guess;
+do {
+    guess = parseInt(prompt("Guess a number between 1 and 100:"));
+    if (guess > secret) {
+        console.log("Too high!");
+    } else if (guess < secret) {
+        console.log("Too low!");
+    }
+} while (guess !== secret);
+console.log("Correct! The number was", secret);
+
+let input;
+do {
+    input = prompt("Enter something (type 'exit' to stop):");
+} while (input !== "exit");
+console.log("Exited.");
+
+
+let arr = [1, 2, 3, 4, 5];
+let reversed = [];
+let index = arr.length - 1;
+do {
+    reversed.push(arr[index]);
+    index--;
+} while (index >= 0);
+console.log("Reversed array:", reversed);
+
+
+for (let i = 1; i <= 10; i++) {
+    for (let j = 1; j <= 10; j++) {
+        console.log(`${i} x ${j} = ${i * j}`);
+    }
+    console.log("----------");
+}
+
+
+let value;
+while (true) {
+    value = prompt("Enter a number to find factorial (type 'exit' to stop):");
+    if (value === "exit") break;
+    let num = parseInt(value);
+    let fact = 1;
+    for (let i = 1; i <= num; i++) {
+        fact *= i;
+    }
+    console.log(`Factorial of ${num} = ${fact}`);
+}
+
+
+const randomNumber = Math.floor(Math.random() * 10) + 1;
+let userGuess;
+do {
+    userGuess = parseInt(prompt("Guess a number between 1 and 10:"));
+} while (userGuess !== randomNumber);
+console.log("Correct! The number was", randomNumber);

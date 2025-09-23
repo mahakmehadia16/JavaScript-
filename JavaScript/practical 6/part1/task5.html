@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 5 - Word Count</title>
+</head>
+<body>
+  <h2>Task 5: Word Count</h2>
+  <p id="output"></p>
+
+  <script>
+    // Input as given
+    let sentence = "Hello world, welcome to the JavaScript lab";
+    // Count words using split
+    let wordCount = sentence.split(" ").length;
+    document.getElementById("output").innerHTML =
+      `Sentence: "${sentence}" <br> Word Count: <b>${wordCount}</b>`;
+  </script>
+</body>
+</html>

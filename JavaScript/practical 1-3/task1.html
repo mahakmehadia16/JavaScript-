@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Billing Calculator (ES6+)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    form { margin-bottom: 20px; }
+    label { display: block; margin: 8px 0 4px; }
+    input, button { padding: 8px; margin-bottom: 10px; width: 200px; }
+    #result { font-weight: bold; margin-top: 10px; color: green; }
+  </style>
+</head>
+<body>
+
+  <h2>Billing Calculator</h2>
+  <form id="billingForm">
+    <label>Item Name:</label>
+    <input type="text" id="itemName" required>
+
+    <label>Quantity:</label>
+    <input type="number" id="quantity" min="1" placeholder="Default: 1">
+
+    <label>Price per item (₹):</label>
+    <input type="number" id="price" min="0" step="0.01" required>
+
+    <br>
+    <button type="submit">Calculate</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const form = document.getElementById('billingForm');
+    const resultDiv = document.getElementById('result');
+
+    // Arrow function with default parameter for quantity
+    const calculateBill = (itemName, quantity = 1, price) => quantity * price;
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const itemName = document.getElementById('itemName').value.trim();
+      let quantity = parseInt(document.getElementById('quantity').value);
+      const price = parseFloat(document.getElementById('price').value);
+
+      // Default to 1 if quantity is not entered or invalid
+      if (!quantity || quantity < 1) quantity = 1;
+
+      const total = calculateBill(itemName, quantity, price);
+
+      // Template literal for formatted output
+      resultDiv.innerHTML = `You ordered ${quantity} ${itemName}(s) at ₹${price} each. Total: ₹${total}.`;
+    });
+  </script>
+</body>
+</html>

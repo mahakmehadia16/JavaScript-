@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 3 - Validate Email</title>
+</head>
+<body>
+  <h2>Task 3: Validate Email Address</h2>
+  <p id="output"></p>
+
+  <script>
+    // Input as given
+    let email = "student@example.com";
+    // Validate using regex
+    let isValid = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
+    document.getElementById("output").innerHTML =
+      `Email: "${email}" <br> Valid? <b>${isValid}</b>`;
+  </script>
+</body>
+</html>

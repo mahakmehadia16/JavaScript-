@@ -1,0 +1,19 @@
+<script>
+    // Closure Example
+function secretMessage(password) {
+    const secret = "The treasure is buried under the old oak tree!";
+    return function(givenPassword) {
+        if (givenPassword === password) {
+            return secret;
+        } else {
+            return "Access Denied!";
+        }
+    };
+}
+
+const revealSecret = secretMessage("mypassword123");
+
+console.log(revealSecret("wrongpass")); // Access Denied!
+console.log(revealSecret("mypassword123")); // The treasure is buried under the old oak tree!
+
+</script>

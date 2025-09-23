@@ -1,0 +1,55 @@
+<script>
+const analyzeData = (input) => {
+  let type = "";
+  let mutable = "";
+
+  if (input === null) {
+    type = "null";
+    mutable = "immutable";
+  } else if (Array.isArray(input)) {
+    type = "array";
+    mutable = "mutable";
+  } else if (input instanceof Function) {
+    type = "function";
+    mutable = "mutable";
+  } else if (input instanceof String || typeof input === "string") {
+    type = "string";
+    mutable = "immutable";
+  } else if (input instanceof Number || Object.prototype.toString.call(input) === "[object Number]") {
+    type = "number";
+    mutable = "immutable";
+  } else if (input instanceof Boolean || Object.prototype.toString.call(input) === "[object Boolean]") {
+    type = "boolean";
+    mutable = "immutable";
+  } else if (input instanceof Symbol) {
+    type = "symbol";
+    mutable = "immutable";
+  } else if (input instanceof BigInt) {
+    type = "bigint";
+    mutable = "immutable";
+  } else if (input === undefined) {
+    type = "undefined";
+    mutable = "immutable";
+  } else if (input instanceof Object) {
+    type = "object";
+    mutable = "mutable";
+  } else {
+    type = "unknown";
+    mutable = "unknown";
+  }
+
+  console.log(`Type: ${type}`);
+  console.log(`Mutability: ${mutable}`);
+  console.log(`Summary: This value is a(n) ${type} and it is ${mutable}.`);
+};
+
+// Test examples
+analyzeData("hello");
+analyzeData(123);
+analyzeData(true);
+analyzeData(null);
+analyzeData(undefined);
+analyzeData([1, 2, 3]);
+analyzeData({ name: "Riya" });
+analyzeData(() => {});
+</script>

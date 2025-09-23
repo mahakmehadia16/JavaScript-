@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Library Management System</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #2c3e50;
+    }
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      width: 420px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: #34495e;
+    }
+    button {
+      width: 100%;
+      margin: 8px 0;
+      padding: 12px;
+      font-size: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #27ae60;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #1f8c4d;
+      transform: scale(1.02);
+    }
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background: #ecf0f1;
+      border-radius: 10px;
+      min-height: 60px;
+      text-align: left;
+      font-size: 14px;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .footer {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Smart Library Management</h1>
+
+  <button onclick="option1()">1️⃣ Compare two books</button>
+  <button onclick="option2()">2️⃣ Factorial (Ticket ID)</button>
+  <button onclick="option3()">3️⃣ Check note for 'Library'</button>
+  <button onclick="option4()">4️⃣ Secret Shelf (Closure)</button>
+  <button onclick="option5()">5️⃣ Reverse ISBN & Palindrome</button>
+  <button onclick="option6()">6️⃣ Book Title Palindrome</button>
+  <button onclick="option7()">7️⃣ Square Root of Pages</button>
+  <button onclick="option8()">8️⃣ Prime Shelf Checker</button>
+
+  <div id="output">👉 Select an option above</div>
+  <div class="footer">Library Management Practical</div>
+</div>
+
+<script>
+  const output = document.getElementById("output");
+
+  // 1. Compare two books
+  function getThickerBook(p1, p2) {
+    return p1 > p2 ? p1 : p2;
+  }
+  function option1() {
+    try {
+      let a = parseInt(prompt("Enter pages of Book 1:"));
+      let b = parseInt(prompt("Enter pages of Book 2:"));
+      if (isNaN(a) || isNaN(b)) throw new Error("Invalid page count");
+      output.innerText = `Thicker book has ${getThickerBook(a, b)} pages.`;
+    } catch (err) {
+      output.innerText = "Error: " + err.message;
+    }
+  }
+
+  // 2. Factorial
+  const bookFactorial = function(n) {
+    if (n < 0) throw new Error("Factorial not defined for negatives");
+    return n <= 1 ? 1 : n * bookFactorial(n - 1);
+  }
+  function option2() {
+    try {
+      let n = parseInt(prompt("Enter number for factorial:"));
+      if (isNaN(n)) throw new Error("Invalid number");
+      output.innerText = `Ticket ID (Factorial): ${bookFactorial(n)}`;
+    } catch (err) {
+      output.innerText = "Error: " + err.message;
+    }
+  }
+
+  // 3. Note contains 'Library'
+  const checkLibraryNote = (note) => note.includes("Library");
+  function option3() {
+    let note = prompt("Enter a note:");
+    output.innerText = checkLibraryNote(note) 
+      ? "Note contains 'Library'." 
+      : "Note does not contain 'Library'.";
+  }
+
+  // 4. Secret Shelf (Closure)
+  function secretShelf(password) {
+    const rareNote = "(Rare Book Note)";
+    return function(pwd) {
+      return pwd === password ? rareNote : "Access Denied";
+    };
+  }
+  function option4() {
+    let pwd = prompt("Set password:");
+    const shelf = secretShelf(pwd);
+    let tryPwd = prompt("Enter password to unlock:");
+    output.innerText = "Result: " + shelf(tryPwd);
+  }
+
+  // 5. Reverse ISBN
+  function reverseISBN(isbn) {
+    if (typeof isbn !== "number" || isNaN(isbn)) throw new Error("Invalid ISBN");
+    let sign = Math.sign(isbn);
+    let rev = parseInt(Math.abs(isbn).toString().split("").reverse().join(""));
+    return sign * rev;
+  }
+  function isBookIdPalindrome(id) {
+    let str = id.toString();
+    return str === str.split("").reverse().join("");
+  }
+  function option5() {
+    try {
+      let isbn = parseInt(prompt("Enter ISBN:"));
+      if (isNaN(isbn)) throw new Error("Invalid ISBN");
+      let rev = reverseISBN(isbn);
+      output.innerText = `Reversed ISBN: ${rev}\nPalindrome? ${isBookIdPalindrome(Math.abs(isbn))}`;
+    } catch (err) {
+      output.innerText = "Error: " + err.message;
+    }
+  }
+
+  // 6. Book title palindrome
+  function isTitlePalindrome(title) {
+    let clean = title.toLowerCase().replace(/\s+/g, "");
+    return clean === clean.split("").reverse().join("");
+  }
+  function option6() {
+    let title = prompt("Enter book title:");
+    output.innerText = isTitlePalindrome(title) 
+      ? "Title is a palindrome." 
+      : "Title is not a palindrome.";
+  }
+
+  // 7. Square root of pages
+  function sqrtPages(pages) {
+    if (isNaN(pages)) throw new Error("Invalid input");
+    if (pages < 0) throw new Error("Negative numbers not allowed");
+    return Math.sqrt(pages);
+  }
+  function option7() {
+    try {
+      let pages = parseInt(prompt("Enter total pages read:"));
+      output.innerText = `Square Root: ${sqrtPages(pages)}`;
+    } catch (err) {
+      output.innerText = "Error: " + err.message;
+    }
+  }
+
+  // 8. Prime shelf
+  const isPrimeShelf = (n) => {
+    if (isNaN(n) || n < 2) throw new Error("Invalid input");
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) return false;
+    }
+    return true;
+  }
+  function option8() {
+    try {
+      let num = parseInt(prompt("Enter shelf number:"));
+      output.innerText = isPrimeShelf(num) 
+        ? "Shelf number is prime." 
+        : "Shelf number is not prime.";
+    } catch (err) {
+      output.innerText = "Error: " + err.message;
+    }
+  }
+</script>
+</body>
+</html>

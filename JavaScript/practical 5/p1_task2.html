@@ -1,0 +1,39 @@
+<script>
+// Part2: Array of student objects
+let students = [
+  { id: 1, name: "Asha", marks: 72 },
+  { id: 2, name: "Vikram", marks: 48 },
+  { id: 3, name: "Meera", marks: 85 },
+  { id: 4, name: "Rohan", marks: 56 },
+  { id: 5, name: "Priya", marks: 67 }
+];
+
+console.log("Students:", students);
+
+// Use map() to extract all student names
+let names = students.map(s => s.name);
+console.log("Student names:", names);
+
+// Use filter() to select students with marks > 50
+let passed = students.filter(s => s.marks > 50);
+console.log("Students with marks > 50:", passed);
+
+// Use reduce() to calculate the average marks
+let totalMarks = students.reduce((sum, s) => sum + s.marks, 0);
+let avgMarks = totalMarks / students.length;
+console.log("Total marks:", totalMarks);
+console.log("Average marks:", avgMarks.toFixed(2)); // formatted to 2 decimals
+
+// Use forEach() to print a report card format
+console.log("Report cards:");
+students.forEach(s => {
+  let grade;
+  if (s.marks >= 80) grade = "A";
+  else if (s.marks >= 60) grade = "B";
+  else if (s.marks >= 50) grade = "C";
+  else grade = "F";
+
+  console.log(`ID: ${s.id} | Name: ${s.name} | Marks: ${s.marks} | Grade: ${grade}`);
+});
+
+</script>

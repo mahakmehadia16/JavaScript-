@@ -1,0 +1,22 @@
+<script>
+    try {
+    let fileOpen = true;
+    console.log("Opening file...");
+
+    // Simulate an error
+    throw new Error("File read error!");
+
+    console.log("Reading file..."); // this line will not run
+} 
+
+catch (err) 
+{
+    console.log("Error:", err.message);
+} 
+finally 
+{
+    console.log("Closing file (cleanup)...");
+}
+
+
+</script>

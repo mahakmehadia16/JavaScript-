@@ -1,0 +1,21 @@
+<script>
+    const isPrime = (num) => {
+    if (typeof num !== "number" || !Number.isInteger(num) || num < 2) {
+        throw new Error("Input must be an integer >= 2");
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+};
+
+// Test with try...catch
+try {
+    console.log("Is 7 Prime?:", isPrime(7));   // true
+    console.log("Is 10 Prime?:", isPrime(10)); // false
+    console.log("Is 'abc' Prime?:", isPrime("abc")); // throws error
+} catch (err) {
+    console.log("Error:", err.message);
+}
+
+</script>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Task 1 - Validate Mobile Number</title></head>
+<body>
+<h3>Task 1: Validate Mobile Number</h3>
+<p id="output"></p>
+
+<script>
+let mobileRegex = /^[6-9]\d{9}$/;  // from document
+let validNumber = "9876543210";    // ✅ should pass
+let invalidNumber = "1234567890";  // ❌ should fail
+
+document.getElementById("output").innerHTML =
+  "<b>Regex:</b> /^[6-9]\\d{9}$/<br>" +
+  "Valid Input: " + validNumber + " → " + mobileRegex.test(validNumber) + "<br>" +
+  "Invalid Input: " + invalidNumber + " → " + mobileRegex.test(invalidNumber);
+</script>
+</body>
+</html>

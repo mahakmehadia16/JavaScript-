@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 4 - Replace Multiple Spaces</title>
+</head>
+<body>
+  <h2>Task 4: Replace Multiple Spaces</h2>
+  <p id="output"></p>
+
+  <script>
+    // Input as given
+    let input = "JavaScript     is      fun";
+    // Replace multiple spaces with single space using regex
+    let output = input.replace(/\s+/g, " ");
+    document.getElementById("output").innerHTML =
+      `Before: "${input}" <br> After: <b>${output}</b>`;
+  </script>
+</body>
+</html>

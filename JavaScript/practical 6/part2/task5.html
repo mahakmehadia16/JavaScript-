@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Task 5 - Extract Hashtags</title></head>
+<body>
+<h3>Task 5: Extract Hashtags</h3>
+<p id="output"></p>
+
+<script>
+let hashtagRegex = /#[A-Za-z0-9_]+/g;
+
+let tweetWithHashtags = "Learning #JavaScript is #fun and #exciting!"; // ✅ should find 3 hashtags
+let tweetWithoutHashtags = "Learning JavaScript is fun and exciting!"; // ❌ should find null
+
+document.getElementById("output").innerHTML =
+  "<b>Regex:</b> /#[A-Za-z0-9_]+/g<br>" +
+  "Tweet with hashtags: " + tweetWithHashtags + "<br>Output: " + JSON.stringify(tweetWithHashtags.match(hashtagRegex)) + "<br><br>" +
+  "Tweet without hashtags: " + tweetWithoutHashtags + "<br>Output: " + tweetWithoutHashtags.match(hashtagRegex);
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Task 2 - Extract Dates</title></head>
+<body>
+<h3>Task 2: Extract Dates</h3>
+<p id="output"></p>
+
+<script>
+let dateRegex = /\d{2}\/\d{2}\/\d{4}/g;
+let validText = "Today's date is 12/09/2025 and tomorrow will be 13/09/2025.";
+let invalidText = "Today's date is September 12 and tomorrow is 13 Sept.";
+
+document.getElementById("output").innerHTML =
+  "<b>Regex:</b> /\\d{2}\\/\\d{2}\\/\\d{4}/g<br>" +
+  "Valid Input: " + validText + "<br>Output: " + JSON.stringify(validText.match(dateRegex)) + "<br><br>" +
+  "Invalid Input: " + invalidText + "<br>Output: " + invalidText.match(dateRegex);
+</script>
+</body>
+</html>

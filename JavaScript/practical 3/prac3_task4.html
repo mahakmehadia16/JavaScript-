@@ -1,0 +1,34 @@
+<script>
+let balance = 100; // Initial balance
+
+let transaction = prompt("Enter transaction type (withdraw, deposit, balance):");
+
+switch (transaction) {
+    case "withdraw":
+        let withdrawAmount = parseFloat(prompt("Enter amount to withdraw:"));
+        if (withdrawAmount <= balance && withdrawAmount > 0) {
+            balance -= withdrawAmount;
+            alert(`Withdrawal successful.\nNew Balance: ₹${balance}`);
+        } else {
+            alert("Insufficient balance or invalid amount.");
+        }
+        break;
+
+    case "deposit":
+        let depositAmount = parseFloat(prompt("Enter amount to deposit:"));
+        if (depositAmount > 0) {
+            balance += depositAmount;
+            alert(`Deposit successful.\nNew Balance: ₹${balance}`);
+        } else {
+            alert("Invalid deposit amount.");
+        }
+        break;
+
+    case "balance":
+        alert(`Current Balance: ₹${balance}`);
+        break;
+
+    default:
+        alert("Invalid transaction type.");
+}
+</script>

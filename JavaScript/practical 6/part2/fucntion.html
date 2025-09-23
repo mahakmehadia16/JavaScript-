@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mahak's Regex Functions Examples</title>
+</head>
+<body>
+<h2>✨ JavaScript Regex Functions (Personalized Examples) ✨</h2>
+<div id="output"></div>
+
+<script>
+let out = document.getElementById("output");
+function show(method, regex, str, result) {
+  out.innerHTML += `<p><b>${method}</b><br>
+  <b>Regex:</b> ${regex}<br>
+  <b>String:</b> "${str}"<br>
+  <b>Output:</b> ${result}</p>`;
+}
+
+// 1. test() → returns true/false
+let regex1 = /\d/;
+let str1 = "Mahak123";
+show("test()", regex1, str1, regex1.test(str1)); // true if digits exist
+
+// 2. exec() → returns first match as array or null
+let regex2 = /\d+/;
+let str2 = "Order 456 costs 50";
+show("exec()", regex2, str2, JSON.stringify(regex2.exec(str2))); 
+
+// 3. match() → returns array of all matches
+let str3 = "Mahak loves JS, Mahak loves coding!";
+let regex3 = /Mahak/g;
+show("match()", regex3, str3, JSON.stringify(str3.match(regex3)));
+
+// 4. matchAll() → returns iterator of all matches with groups
+let str4 = "Mahak scored 95 and 88 in exams";
+let regex4 = /\d+/g;
+let matches = [...str4.matchAll(regex4)].map(m => m[0]); // collect matches
+show("matchAll()", regex4, str4, JSON.stringify(matches));
+
+// 5. replace() → replaces matched text
+let str5 = "Mahak likes cats";
+let regex5 = /cats/;
+show("replace()", regex5, str5, str5.replace(regex5, "dogs"));
+
+// 6. search() → returns index of first match
+let str6 = "Learning JavaScript is fun!";
+let regex6 = /JavaScript/;
+show("search()", regex6, str6, str6.search(regex6));
+
+// 7. split() → splits string by regex
+let str7 = "HTML,CSS,JavaScript,Python";
+let regex7 = /,/;
+show("split()", regex7, str7, JSON.stringify(str7.split(regex7)));
+</script>
+</body>
+</html>

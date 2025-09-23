@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email Validation Form</title>
+</head>
+<body>
+
+  <h2>Email Validation Form</h2>
+
+  <input type="text" id="emailInput" placeholder="Enter your email" />
+  <br>
+  <button onclick="validateEmail()">Submit</button>
+
+  <div id="errorMsg" class="error"></div>
+
+  <script>
+    function validateEmail() {
+      const email = document.getElementById("emailInput").value;
+      const errorDiv = document.getElementById("errorMsg");
+
+      // Basic email pattern
+      const pattern = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+      if (pattern.test(email)) {
+        alert("✅ Valid Email Entered: " + email);
+        errorDiv.innerText = "";
+      } else {
+        errorDiv.innerText = "❌ Please enter a valid email address.";
+      }
+    }
+  </script>
+
+</body>
+</html>

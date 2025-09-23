@@ -1,0 +1,18 @@
+<form id="redirectForm">
+  <label>Name:</label>
+  <input type="text" id="name" required />
+  <br>
+  <label>Marks:</label>
+  <input type="number" id="marks" required />
+  <br><br>
+  <button type="submit">Submit & Redirect</button>
+</form>
+
+<script>
+document.getElementById("redirectForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const marks = document.getElementById("marks").value;
+  window.location.href = `result.html?name=${encodeURIComponent(name)}&marks=${encodeURIComponent(marks)}`;
+});
+</script>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My First Website</title>
+
+  <!-- Internal CSS for basic styling -->
+  <style>
+    body {
+      font-family: Arial;
+      margin: 20px;
+    }
+
+    h1 {
+      color: darkblue;
+    }
+
+    .highlight {
+      color: green;
+    }
+
+    #special {
+      color: red;
+      font-weight: bold;
+    }
+
+    .box {
+      border: 2px solid black;
+      padding: 10px;
+      margin: 20px 0;
+      width: 200px;
+    }
+
+    .my-button {
+      background-color: orange;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .my-button:hover {
+      background-color: darkorange;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Headings and Paragraph -->
+  <h1>Welcome to My Page</h1>
+  <p>This is my first HTML webpage.</p>
+
+  <!-- 2. Lists and Links -->
+  <h2>My Hobbies</h2>
+  <ul>
+    <li>Reading</li>
+    <li>Drawing</li>
+  </ul>
+
+  <h2>Steps to Make Tea</h2>
+  <ol>
+    <li>Boil water</li>
+    <li>Add tea leaves</li>
+    <li>Strain and serve</li>
+  </ol>
+
+  <p>
+    <a href="#footer">Go to bottom of page</a><br>
+    <a href="https://www.google.com" target="_blank">Visit Google</a>
+  </p>
+
+  <!-- 3. Image and Video -->
+  <h2>My Picture</h2>
+  <img src="C:\Users\mahak\OneDrive\Desktop\JavaScript\download.jpeg" alt="My Image">
+
+  <h2>My Favorite Video</h2>
+  <iframe width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+
+  <!-- 4. Semantic Tags -->
+  <header>
+    <h2>This is the header</h2>
+  </header>
+
+  <section>
+    <p>This is a section of content.</p>
+  </section>
+
+  <article>
+    <p>This is an article inside the page.</p>
+  </article>
+
+  <nav>
+    <p>Menu: <a href="#">Home</a> | <a href="#">Contact</a></p>
+  </nav>
+
+  <!-- 5. Table -->
+  <h2>Subjects</h2>
+  <table border="1">
+    <tr>
+      <th>Subject</th>
+      <th>Marks</th>
+    </tr>
+    <tr>
+      <td>Math</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>English</td>
+      <td>85</td>
+    </tr>
+  </table>
+
+  <!-- 6. Inline CSS -->
+  <p style="color: purple;">This is a purple colored paragraph using inline CSS.</p>
+
+  <!-- 7. Font Styling is already applied in body -->
+
+  <!-- 8. Box Model -->
+  <div class="box">This is a styled box.</div>
+
+  <!-- 9. Class and ID -->
+  <p class="highlight">This text is styled with a class.</p>
+  <p id="special">This text is styled with an ID.</p>
+
+  <!-- 10. Button Styling -->
+  <button class="my-button">Click Me!</button>
+
+  <!-- Footer (part of semantic HTML) -->
+  <footer id="footer">
+    <p>&copy; 2025 My First Website</p>
+  </footer>
+
+</body>
+</html>

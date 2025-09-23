@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple HTML & CSS Without Classes</title>
+
+  <!-- Internal CSS (no class or id selectors used) -->
+  <style>
+    body {
+      font-family: Arial;
+      font-size: 16px;
+      color: #333;
+      margin: 20px;
+    }
+
+    h1 {
+      color: darkblue;
+    }
+
+    h2 {
+      color: brown;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    button {
+      background-color: orange;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: darkorange;
+    }
+
+    div {
+      border: 2px solid black;
+      padding: 10px;
+      margin: 20px 0;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Headings and Paragraph -->
+  <h1>Welcome to My Webpage</h1>
+  <p>This is a simple beginner page using HTML and CSS.</p>
+
+  <!-- 2. Lists and Links -->
+  <h2>My Favorite Fruits</h2>
+  <ul>
+    <li>Apple</li>
+    <li>Mango</li>
+    <li>Banana</li>
+  </ul>
+
+  <h2>Steps to Open a Website</h2>
+  <ol>
+    <li>Turn on computer</li>
+    <li>Open browser</li>
+    <li>Enter URL</li>
+  </ol>
+
+  <p>
+    <a href="#footer">Go to bottom</a><br>
+    <a href="https://www.google.com" target="_blank">Visit Google</a>
+  </p>
+
+  <!-- 3. Image and Video -->
+  <h2>My Photo</h2>
+  <img src= "C:\Users\mahak\OneDrive\Desktop\JavaScript\download.jpeg" alt="My Image">
+
+  <h2>My Favorite Video</h2>
+  <iframe width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+
+  <!-- 4. Semantic HTML -->
+  <header>
+    <h2>Site Header</h2>
+  </header>
+
+  <nav>
+    <p>Menu: <a href="#">Home</a> | <a href="#">Contact</a></p>
+  </nav>
+
+  <section>
+    <article>
+      <p>This is an article in a section.</p>
+    </article>
+  </section>
+
+  <!-- 5. Table -->
+  <h2>Subject Marks</h2>
+  <table>
+    <tr>
+      <th>Subject</th>
+      <th>Marks</th>
+    </tr>
+    <tr>
+      <td>English</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>Science</td>
+      <td>90</td>
+    </tr>
+  </table>
+
+  <!-- 6. Inline CSS -->
+  <p style="color: green;">This paragraph is green using inline CSS.</p>
+
+  <!-- 7. Text Styling already done in body style -->
+
+  <!-- 8. Box Model (using plain div) -->
+  <div>This is a styled box (margin, padding, border).</div>
+
+  <!-- 9. No ID or Class used (already demonstrated above) -->
+
+  <!-- 10. Button with hover effect -->
+  <button>Click Me</button>
+
+  <footer id="footer">
+    <p>&copy; 2025 My First Website</p>
+  </footer>
+
+</body>
+</html>

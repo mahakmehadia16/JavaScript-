@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Task 3 - Password Strength</title></head>
+<body>
+<h3>Task 3: Password Strength Checker</h3>
+<p id="output"></p>
+
+<script>
+let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+let strongPassword = "StrongPass1!"; // ✅ should pass
+let weakPassword = "weakpass";       // ❌ should fail
+
+document.getElementById("output").innerHTML =
+  "<b>Regex:</b> /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/<br>" +
+  "Strong Password: " + strongPassword + " → " + passwordRegex.test(strongPassword) + "<br>" +
+  "Weak Password: " + weakPassword + " → " + passwordRegex.test(weakPassword);
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<script>
+    function safeSqrt(num) {
+    try {
+        if (typeof num !== "number" || isNaN(num)) {
+            throw new Error("Invalid number input");
+        }
+        if (num < 0) {
+            throw new Error("Cannot calculate square root of negative numbers");
+        }
+        return Math.sqrt(num);
+    } catch (err) {
+        return "Error: " + err.message;
+    }
+}
+
+// Test
+console.log("Sqrt(25):", safeSqrt(25));    // 5
+console.log("Sqrt(-9):", safeSqrt(-9));    // Error
+console.log("Sqrt('abc'):", safeSqrt("abc")); // Error
+
+</script>

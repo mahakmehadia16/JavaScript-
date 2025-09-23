@@ -1,0 +1,23 @@
+<script>
+    function reverseNumber(num) {
+    if (typeof num !== "number" || isNaN(num)) {
+        throw new Error("Invalid number input");
+    }
+
+    let isNegative = num < 0;
+    let reversed = parseInt(
+        Math.abs(num).toString().split("").reverse().join("")
+    );
+
+    return isNegative ? -reversed : reversed;
+}
+
+// Test
+try {
+    console.log("Reversed (1234):", reverseNumber(1234));   // 4321
+    console.log("Reversed (-1234):", reverseNumber(-1234)); // -4321
+} catch (err) {
+    console.log("Error:", err.message);
+}
+
+</script>

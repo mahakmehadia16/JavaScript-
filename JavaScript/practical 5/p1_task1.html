@@ -1,0 +1,27 @@
+<script>
+// Part1: Array Basics - Student ages
+
+// Step A: Create an array of student ages (5 ages)
+let ages = [15, 17, 16, 18, 14];
+console.log("Original ages:", ages);
+
+// Use push() to add a new age
+ages.push(19);
+console.log("After push(19):", ages);
+
+// Use pop() to remove the last age and display the array
+let removed = ages.pop();
+console.log("Removed age (pop):", removed);
+console.log("After pop():", ages);
+
+// Print the length of the array
+console.log("Array length:", ages.length);
+
+// Use map() to calculate double of each age
+let doubled = ages.map(age => age * 2);
+console.log("Doubled ages:", doubled);
+
+// Challenge: Use map() to find the cube of each element
+let cubes = ages.map(age => age * age * age); // or Math.pow(age,3)
+console.log("Cube of ages:", cubes);
+</script>

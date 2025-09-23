@@ -1,0 +1,26 @@
+STUDENT REPORT CARD
+<script>
+const student = {
+  name: "Aarav",
+  rollNo: 205,
+  marks: {
+    Math: 72,
+    Science: 80,
+    English: 68,
+    History: 75,
+    Art: 89
+  }
+};
+
+const { name, rollNo, marks } = student;
+const { Math, Science, English, History, Art } = marks;
+
+const total = Math + Science + English + History + Art;
+const percentage = (total / 5);
+
+console.log(`Report Card for ${name} (Roll No: ${rollNo})
+-----------------------------------
+Subjects: Math: ${Math}, Science: ${Science}, English: ${English}, History: ${History}, Art: ${Art}
+Total Marks: ${total}
+Percentage: ${percentage}%`);
+</script>

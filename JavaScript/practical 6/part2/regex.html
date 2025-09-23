@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mahak's Regex Examples</title>
+</head>
+<body>
+<h2>✨ Basic Regex Syntax Examples (Personalized for Mahak) ✨</h2>
+<div id="output"></div>
+
+<script>
+let out = document.getElementById("output");
+function show(title, regex, str, result) {
+  out.innerHTML += `<p><b>${title}</b><br>
+  <b>Regex:</b> ${regex} <br>
+  <b>Tested String:</b> "${str}" <br>
+  <b>Result:</b> ${result}</p>`;
+}
+
+// ^ → Start of string
+let str1 = "Mahak loves coding";
+show("^ (start)", "/^Mahak/", str1, /^Mahak/.test(str1));
+
+// $ → End of string
+let str2 = "Mahak loves coding";
+show("$ (end)", "/coding$/", str2, /coding$/.test(str2));
+
+// . → Any character
+let str3 = "Mahak";
+show(". (dot)", "/M.hak/", str3, /M.hak/.test(str3));
+
+// * → 0 or more occurrences
+let str4 = "coood";
+show("*", "/co*d/", str4, /co*d/.test(str4));
+
+// + → 1 or more occurrences
+let str5 = "coood";
+show("+", "/co+d/", str5, /co+d/.test(str5));
+
+// ? → 0 or 1 occurrence
+let str6 = "colour";
+show("?", "/colou?r/", str6, /colou?r/.test(str6));
+
+// [abc] → Match any one
+let str7 = "Mahak";
+show("[abc]", "/M[ae]hak/", str7, /M[ae]hak/.test(str7));
+
+// [^abc] → Not these characters
+let str8 = "Mahak123";
+show("[^abc]", "/[^0-9]/", str8, /[^0-9]/.test(str8));
+
+// {n} → Exactly n times
+let str9 = "My roll is 23070521084";
+show("{n}", "/\\d{3}/", str9, /\d{3}/.test(str9));
+
+// {n,} → At least n times
+let str10 = "Age 20";
+show("{n,}", "/\\d{2,}/", str10, /\d{2,}/.test(str10));
+
+// {n,m} → Between n and m times
+let str11 = "Pin 4400";
+show("{n,m}", "/\\d{2,4}/", str11, /\d{2,4}/.test(str11));
+
+// \d → Digit
+let str12 = "Mahak2025";
+show("\\d", "/\\d/", str12, /\d/.test(str12));
+
+// \w → Word character
+let str13 = "Mahak";
+show("\\w", "/\\w/", str13, /\w/.test(str13));
+
+// \s → Whitespace
+let str14 = "Mahak Mehadia";
+show("\\s", "/\\s/", str14, /\s/.test(str14));
+
+// | → OR operator
+let str15 = "Mahak codes in JavaScript";
+show("| (OR)", "/JavaScript|Python/", str15, /JavaScript|Python/.test(str15));
+</script>
+</body>
+</html>

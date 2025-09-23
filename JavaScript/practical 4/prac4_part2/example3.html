@@ -1,0 +1,16 @@
+<script>
+function checkAge(age) 
+{
+    if (age < 18) throw new Error("You must be 18+");
+    return "Access granted";
+}
+
+try 
+{
+    console.log(checkAge(16));
+} 
+catch (err) 
+{
+    console.log(err.message);
+}
+</script>

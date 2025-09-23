@@ -1,0 +1,16 @@
+<script>
+const colors1 = ["red", "green", "purple"];
+const colors2 = ["blue", "yellow", "orange", "beige"];
+
+const palette = [...colors1, ...colors2];
+
+const [firstColor, ...restColors] = palette;
+const [...middleColors] = restColors.slice(0, -1); 
+const lastColor = restColors[restColors.length - 1];
+
+console.log(`Main colors: ${capitalize(firstColor)} and ${capitalize(lastColor)}. Others in the palette: ${middleColors.map(capitalize).join(", ")}.`);
+
+function capitalize(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+</script>

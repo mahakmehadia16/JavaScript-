@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 1 - Name Formatter</title>
+</head>
+<body>
+  <h2>Task 1: Name Formatter</h2>
+  <p id="output"></p>
+
+  <script>
+    // Input as given
+    let nameInput = " jOhN doE ";
+    // Step 1: Trim spaces
+    let trimmed = nameInput.trim();
+    // Step 2: Capitalize first letters
+    let formatted = trimmed.split(" ")
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+    document.getElementById("output").innerHTML =
+      `Input: "${nameInput}" <br> Output: <b>${formatted}</b>`;
+  </script>
+</body>
+</html>
