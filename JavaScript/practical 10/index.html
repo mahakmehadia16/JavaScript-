@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Inventory Dashboard</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #333; padding: 8px 10px; text-align: center; }
+    th { background-color: #f0f0f0; }
+    tr.low-stock { background-color: #ffb3b3; }  /* red highlight */
+    .controls { margin-bottom: 10px; }
+    select, input { padding: 5px; margin-right: 10px; }
+    h2 { color: #333; }
+    .section { border: 1px solid #ccc; padding: 15px; margin-top: 20px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+  <h2>🛒 Product Inventory Dashboard</h2>
+  <div class="controls">
+    <label>Filter by Category:
+      <select id="categoryFilter">
+        <option value="all">All</option>
+      </select>
+    </label>
+
+    <label>Search by Name:
+      <input type="text" id="searchInput" placeholder="Enter product name...">
+    </label>
+  </div>
+
+  <!-- Section 1: Fetch API -->
+  <div class="section">
+    <h3>Table 1 (Loaded using Fetch API)</h3>
+    <table id="fetchTable">
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Section 2: jQuery AJAX -->
+  <div class="section">
+    <h3>Table 2 (Loaded using jQuery $.getJSON)</h3>
+    <table id="ajaxTable">
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
