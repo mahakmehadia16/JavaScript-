@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1: Add Items</title>
+</head>
+<body>
+  <h2>Task 1: Add Items to List</h2>
+  <input type="text" id="taskInput" placeholder="Enter a task">
+  <button onclick="addTask()">Add</button>
+  <ul id="taskList"></ul>
+
+  <script>
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const taskText = input.value.trim();
+
+      if (taskText !== "") {
+        const li = document.createElement("li");
+        li.textContent = taskText;
+        document.getElementById("taskList").appendChild(li);
+        input.value = ""; // clear input
+      }
+    }
+  </script>
+</body>
+</html>
