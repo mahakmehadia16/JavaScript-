@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Personalized Dashboard (Simplified)</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    transition: all 0.3s ease;
+    padding: 20px;
+  }
+  .light {
+    background-color: white;
+    color: black;
+  }
+  .dark {
+    background-color: #121212;
+    color: white;
+  }
+  #controls button, select {
+    margin: 6px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #resetBtn {
+    background-color: crimson;
+    color: white;
+  }
+</style>
+</head>
+
+<body>
+  <h1 id="welcomeText">Welcome!</h1>
+
+  <div id="controls">
+    <input type="text" id="userName" placeholder="Enter your name">
+    <button onclick="saveUser()">Save Name</button>
+    <button onclick="toggleTheme()">Switch Theme</button>
+
+    <select id="fontChooser" onchange="saveFontSize()">
+      <option value="small">Small</option>
+      <option value="medium">Medium</option>
+      <option value="large">Large</option>
+    </select>
+
+    <button id="resetBtn" onclick="resetPreferences()">Reset Preferences</button>
+  </div>
+
+  <p id="tabCounter"></p>
+
+  <h3>Feedback</h3>
+  <textarea id="feedback" rows="5" cols="40" placeholder="Your feedback..."></textarea>
+
+<script>
+// ------------------------
+// LOAD SETTINGS ON STARTUP
+// ------------------------
+window.onload = function() {
+  loadTheme();
+  loadFontSize();
+  loadUser();
+  countVisits();
+  loadFeedback();
+};
+
+// ------------------------
+// THEME FUNCTIONS
+// ------------------------
+function loadTheme() {
+  let theme = localStorage.getItem("theme") || "light"; // Default = light
+  document.body.className = theme;
+}
+
+function toggleTheme() {
+  let current = document.body.classList.contains("light") ? "dark" : "light";
+  document.body.className = current;
+  localStorage.setItem("theme", current);
+}
+
+// ------------------------
+// FONT SIZE FUNCTIONS
+// ------------------------
+function loadFontSize() {
+  let savedSize = localStorage.getItem("fontSize") || "medium";
+  document.body.style.fontSize = savedSize;
+  document.getElementById("fontChooser").value = savedSize;
+}
+
+function saveFontSize() {
+  let size = document.getElementById("fontChooser").value;
+  localStorage.setItem("fontSize", size);
+  document.body.style.fontSize = size;
+}
+
+// ------------------------
+// USERNAME FUNCTIONS
+// ------------------------
+function saveUser() {
+  let name = document.getElementById("userName").value.trim();
+  if (name) {
+    localStorage.setItem("userName", name);
+    document.getElementById("welcomeText").innerText = "Welcome, " + name + "!";
+  }
+}
+
+function loadUser() {
+  let name = localStorage.getItem("userName");
+  if (name) {
+    document.getElementById("welcomeText").innerText = "Welcome, " + name + "!";
+    document.getElementById("userName").value = name;
+  }
+}
+
+// ------------------------
+// SESSION COUNTER
+// ------------------------
+function countVisits() {
+  let visits = sessionStorage.getItem("visits");
+  if (visits) {
+    visits = Number(visits) + 1;
+  } else {
+    visits = 1;
+  }
+  sessionStorage.setItem("visits", visits);
+  document.getElementById("tabCounter").innerText =
+    "This tab has been refreshed " + visits + " times.";
+}
+
+// ------------------------
+// FEEDBACK FUNCTIONS
+// ------------------------
+const feedbackBox = document.getElementById("feedback");
+
+feedbackBox.addEventListener("input", function() {
+  sessionStorage.setItem("feedback", feedbackBox.value);
+});
+
+function loadFeedback() {
+  let text = sessionStorage.getItem("feedback");
+  if (text) {
+    feedbackBox.value = text;
+  }
+}
+
+// ------------------------
+// RESET FUNCTION
+// ------------------------
+function resetPreferences() {
+  localStorage.clear(); // clear only persistent data
+  alert("Preferences cleared! Reloading...");
+  location.reload();
+}
+</script>
+</body>
+</html>
