@@ -1,0 +1,127 @@
+<html>
+<head>
+  <title>Form Validation Demo</title>
+</head>
+<body>
+  <h1>Form Validation (15 Techniques)</h1>
+
+  <form name="myForm" onsubmit="return validateForm()">
+    
+    Username: <input type="text" name="username" required>
+
+    Age: <input type="text" name="age">
+
+    Email: <input type="text" name="email" required 
+      oninvalid="this.setCustomValidity('Enter a valid email!')" 
+      oninput="this.setCustomValidity('')">
+
+    Password: <input type="password" name="password">
+    Confirm Password: <input type="password" name="confirmPassword">
+
+    Phone: <input type="text" name="phone">
+
+    Gender:
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+
+    City:
+    <select name="city">
+      <option value="">--Select City--</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Chennai">Chennai</option>
+    </select>
+
+    Date of Birth: <input type="date" name="dob">
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function validateForm() {
+      let form = document.forms["myForm"];
+
+      let username = form["username"].value;
+      let age = form["age"].value;
+      let email = form["email"].value;
+      let password = form["password"].value;
+      let confirmPassword = form["confirmPassword"].value;
+      let phone = form["phone"].value;
+      let gender = form["gender"].value;
+      let city = form["city"].value;
+      let dob = new Date(form["dob"].value);
+      let today = new Date();
+
+      if (username === "") {
+        alert("Username is required");
+        return false;
+      }
+
+      if (isNaN(age)) {
+        alert("Age must be a number");
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters");
+        return false;
+      }
+
+      if (age < 18 || age > 60) {
+        alert("Age must be between 18 and 60");
+        return false;
+      }
+
+      let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(pattern)) {
+        alert("Invalid email format");
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return false;
+      }
+
+      if (!/^[0-9]+$/.test(phone)) {
+        alert("Phone must contain only digits");
+        return false;
+      }
+
+      if (!email.match(pattern)) {
+        alert("Invalid email address");
+        return false;
+      }
+
+      let passPattern = /^(?=.[A-Z])(?=.[a-z])(?=.[0-9])(?=.[@#$%^&+=]).{8,}$/;
+      if (!password.match(passPattern)) {
+        alert("Weak password. Use uppercase, lowercase, number & special char.");
+        return false;
+      }
+
+      if (!form["gender"].value) {
+        alert("Please select your gender");
+        return false;
+      }
+
+      if (city === "") {
+        alert("Please select a city");
+        return false;
+      }
+
+      if (dob > today) {
+        alert("Date of Birth cannot be in the future");
+        return false;
+      }
+
+      return true;
+    }
+
+    document.forms["myForm"]["username"].oninput = function() {
+      if (this.value.length < 3) {
+        alert("Must be at least 3 characters");
+      }
+    }
+  </script>
+</body>
+</html>
