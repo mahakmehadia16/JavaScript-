@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Smart Student Portal — Home</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- PRACTICAL 1: INTERNAL JS - Environment logging & welcome -->
+  <script>
+    console.log("P1: Internal JS - Smart Student Portal Home");
+    console.table({
+      userAgent: navigator.userAgent,
+      platform: navigator.platform,
+      language: navigator.language
+    });
+    // Small function to demonstrate default parameter (Practical 2 later uses too)
+    function greet(name = 'Student') {
+      console.log(`Welcome ${name} — from internal JS (P1)`); // template literal (P2)
+    }
+  </script>
+</head>
+<body>
+  <nav class="topnav">
+    <a class="brand" href="index.html">Smart Student Portal</a>
+    <div class="links">
+      <a href="academics.html">Academics</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1 id="homeTitle">Welcome to Smart Student Portal</h1>
+
+    <!-- PRACTICAL 1: INLINE JS button example -->
+    <button onclick="(function(){ alert('Hello! — Inline JS (P1)'); console.log('Inline greeting clicked'); })()">Say Hello (Inline JS — P1)</button>
+
+    <!-- PRACTICAL 2: Fees / Billing Calculator (variables, template literals, default params) -->
+    <section class="card">
+      <h2>Semester Fees Calculator (Practical 2)</h2>
+      <label>Tuition (₹): <input id="tuition" type="number" value="15000"></label>
+      <label>Exam Fees (₹): <input id="exam" type="number" value="1200"></label>
+      <label>Library Fees (₹): <input id="library" type="number" value="300"></label>
+      <button id="calcFees">Calculate Total Fees</button>
+      <p id="feesResult"></p>
+    </section>
+
+    <!-- PRACTICAL 3: Grade evaluator -->
+    <section class="card">
+      <h2>Grade Evaluator (Practical 3)</h2>
+      <label>Enter marks (0-100): <input id="marksInput" type="number"></label>
+      <button id="evalGrade">Evaluate Grade</button>
+      <p id="gradeOutput"></p>
+    </section>
+
+    <!-- PRACTICAL 4: Student ID tools — reverse and palindrome check + validation -->
+    <section class="card">
+      <h2>Student ID Tools (Practical 4)</h2>
+      <label>Enter Student ID: <input id="stuId" placeholder="e.g., S2025A01"></label>
+      <button id="checkId">Check ID</button>
+      <p id="idResult"></p>
+    </section>
+
+    <!-- PRACTICAL 9: Theme toggle saved in localStorage -->
+    <section class="card">
+      <h2>Preferences (Practical 9)</h2>
+      <button id="toggleTheme">Toggle Theme (Light/Dark)</button>
+      <p>Theme preference is saved in Local Storage.</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">Smart Student Portal — Built for Practicals</footer>
+
+  <!-- PRACTICAL 1: External JS inclusion (script.js) -->
+  <script src="script.js"></script>
+</body>
+</html>

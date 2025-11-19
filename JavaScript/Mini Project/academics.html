@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Smart Student Portal — Academics</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <!-- PRACTICAL 1: small internal script to log this page load -->
+  <script>console.log('P1: Academics page loaded');</script>
+</head>
+<body>
+  <nav class="topnav">
+    <a class="brand" href="index.html">Smart Student Portal</a>
+    <div class="links">
+      <a href="academics.html">Academics</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1>Academics</h1>
+
+    <!-- PRACTICAL 5: Course Registration Cart (arrays & objects, map/filter/reduce) -->
+    <section class="card">
+      <h2>Course Registration (Practical 5)</h2>
+      <p>Select courses to add to your registration cart.</p>
+      <div id="coursesList"></div>
+      <button id="applyScholar">Apply Scholarship</button>
+      <p>Total Credits: <span id="totalCredits">0</span></p>
+      <p>Total Fees: ₹<span id="totalFees">0</span></p>
+    </section>
+
+    <!-- PRACTICAL 7: Assignments To-Do (DOM traversal & manipulation) -->
+    <section class="card">
+      <h2>Assignments / To-Do (Practical 7)</h2>
+      <input id="taskInput" placeholder="New assignment or task">
+      <button id="addTask">Add Task</button>
+      <ul id="taskList"></ul>
+    </section>
+
+    <!-- PRACTICAL 10: Load timetable/students JSON -->
+    <section class="card">
+      <h2>Class Timetable (Practical 10)</h2>
+      <button id="loadTimetable">Load Timetable (from JSON)</button>
+      <table id="timetable"><thead><tr><th>Day</th><th>9:00</th><th>11:00</th><th>2:00</th></tr></thead><tbody></tbody></table>
+      <p class="small">(Use a local server when testing fetch())</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">Academics — Smart Student Portal</footer>
+  <script src="script.js"></script>
+</body>
+</html>

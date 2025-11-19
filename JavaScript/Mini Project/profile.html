@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Smart Student Portal — Profile</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script>console.log('P1: Profile page');</script>
+</head>
+<body>
+  <nav class="topnav">
+    <a class="brand" href="index.html">Smart Student Portal</a>
+    <div class="links">
+      <a href="academics.html">Academics</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1>Student Profile</h1>
+
+    <!-- PRACTICAL 8: Admission / Profile Form with live validation -->
+    <section class="card">
+      <h2>Profile / Admission Form (Practical 8)</h2>
+      <form id="profileForm">
+        <label>Full Name: <input id="fullName" required></label>
+        <label>Email: <input id="emailAddr" required></label>
+        <label>Age: <input id="ageNum" type="number" required></label>
+        <label>Course:
+          <select id="selectCourse">
+            <option value="BSc CS">BSc CS</option>
+            <option value="BTech">BTech</option>
+            <option value="BA">BA</option>
+          </select>
+        </label>
+        <button type="submit">Save Profile</button>
+      </form>
+      <p id="profileMsg"></p>
+    </section>
+
+    <!-- PRACTICAL 6: String tools for bio / regex validation -->
+    <section class="card">
+      <h2>Profile Tools (Practical 6)</h2>
+      <textarea id="bio" placeholder="Write a short bio..."></textarea>
+      <button id="countBioVowels">Count Vowels</button>
+      <button id="reverseBio">Reverse Bio</button>
+      <p id="bioResult"></p>
+    </section>
+
+    <!-- PRACTICAL 11: Exam Countdown Timer -->
+    <section class="card">
+      <h2>Exam Countdown (Practical 11)</h2>
+      <label>Set exam date & time: <input id="examDatetime" type="datetime-local"></label>
+      <button id="startCountdown">Start Countdown</button>
+      <p id="countdownDisplay">No countdown running</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">Profile — Smart Student Portal</footer>
+  <script src="script.js"></script>
+</body>
+</html>

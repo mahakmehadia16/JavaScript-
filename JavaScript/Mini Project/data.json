@@ -1,0 +1,46 @@
+{
+  "timetable": [
+    {
+      "day": "Monday",
+      "hour1": "Math",
+      "hour2": "Physics",
+      "hour3": "Lab"
+    },
+    {
+      "day": "Tuesday",
+      "hour1": "DSA",
+      "hour2": "DBMS",
+      "hour3": "Tutorial"
+    },
+    {
+      "day": "Wednesday",
+      "hour1": "OS",
+      "hour2": "Elective",
+      "hour3": "Lab"
+    },
+    {
+      "day": "Thursday",
+      "hour1": "Networks",
+      "hour2": "Math",
+      "hour3": "Project"
+    },
+    {
+      "day": "Friday",
+      "hour1": "Seminar",
+      "hour2": "Workshop",
+      "hour3": "Exam Prep"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "name": "Aman Kumar",
+      "course": "BSc CS"
+    },
+    {
+      "id": 2,
+      "name": "Meera Patel",
+      "course": "BTech"
+    }
+  ]
+}
